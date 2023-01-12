@@ -1,2 +1,4 @@
-# PaRappaCollection
-i'm bad at coding so this will take foreverrrrrrrrr
+# The PaRappa the Rapper Collection
+It's PaRappa. But in Unity!
+
+please help i literally cant code for the life of me
