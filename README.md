@@ -1,10 +1,11 @@
 # The PaRappa the Rapper Collection
 It's PaRappa. But in Unity!
 
-please help i literally cant code for the life of me
+There's not much else to it honestly
 
-if youd like to help, DM me on discord: Junimeek#5738
+Any help we can get would be greately appreciated, as we're just a small team doing this in our free time!
+If youd like to help, please friend and DM me on discord: Junimeek#5738
 
 ## Contributors
 - Junimeek: Sprites and audio, programming
-- pahaze: programming maybe
+- pahaze: Programming
