@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int curRank;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+
+
 }

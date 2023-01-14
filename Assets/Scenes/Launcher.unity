@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de9d328de65cfc4ebaf23ef0fc48a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curRank: 0
 --- !u!1 &931829262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,13 +2944,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8300000, guid: 1f76229c46043484b8ce1beaee813e08, type: 3}
+      - m_Target: {fileID: 1706420934}
         m_TargetAssemblyTypeName: LauncherManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ShowPlayMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3177,7 +3178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9820769239dd0b4b9db5492ffdce63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1955520866}
 --- !u!1 &2006014618
 GameObject:
   m_ObjectHideFlags: 0

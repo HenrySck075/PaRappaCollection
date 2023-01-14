@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UJL_Initialization : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class UJL_Initialization : MonoBehaviour
 
     public void Start()
     {
+        SceneManager.LoadScene("Fire");
+        /*
         SCEA.SetActive(true);
         Player.SetActive(false);
         FadeImage.gameObject.SetActive(false);
         //Invoke("StartVideo", 1);
+        */
     }
 
     private void StartVideo()
