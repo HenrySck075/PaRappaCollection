@@ -39,4 +39,32 @@ public class LauncherManager : MonoBehaviour
         startMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
+
+    public void noyourafool()
+    {
+        Debug.LogError("this game doesnt exist yet you fool!");
+    }
+
+    public AudioSource RemasteredLoop;
+    public AudioSource LammyLoop;
+    public AudioSource SequelLoop;
+
+    public void PlayRL()
+    {
+        RemasteredLoop.Play();
+        LammyLoop.Stop();
+        SequelLoop.Stop();
+    }
+    public void PlayLL()
+    {
+        RemasteredLoop.Stop();
+        LammyLoop.Play();
+        SequelLoop.Stop();
+    }
+    public void PlaySL()
+    {
+        RemasteredLoop.Stop();
+        LammyLoop.Stop();
+        SequelLoop.Play();
+    }
 }

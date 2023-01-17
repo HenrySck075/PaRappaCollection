@@ -38,7 +38,14 @@ public class TabGroup : MonoBehaviour
 
     public void OnTabSelected(TabButton button)
     {
+        if (selectedTab != null)
+        {
+            selectedTab.Deselect();
+        }
+
         selectedTab = button;
+        selectedTab.Select();
+        
         ResetTabs();
         button.background.sprite = tabActive;
         int index = button.transform.GetSiblingIndex();
