@@ -6,25 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class UJL_Initialization : MonoBehaviour
 {
-    public Image FadeImage;
-    public GameObject SCEA;
-    public GameObject Player;
+    [SerializeField] private AudioSource TitleLoop;
 
     public void Start()
     {
-        SceneManager.LoadScene("Fire");
-        /*
-        SCEA.SetActive(true);
-        Player.SetActive(false);
-        FadeImage.gameObject.SetActive(false);
-        //Invoke("StartVideo", 1);
-        */
+        TitleLoop.Play();
     }
 
-    private void StartVideo()
+    public void LoadGameState(string sceneName)
     {
-        Debug.LogWarning("video should start here, but ive temporarily disabled it");
-        SCEA.SetActive(false);
-        //GetComponent<UJL_VideoPlayer>().PlayVideo();
+        FindObjectOfType<LoadingManager>().LoadScene(sceneName);
     }
 }

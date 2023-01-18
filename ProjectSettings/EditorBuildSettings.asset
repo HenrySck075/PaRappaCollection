@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/UJL/UJL_Initialization.unity
     guid: a9fa83ff11bd27a4bbbd522345fb7d7b
   - enabled: 1
-    path: Assets/Scenes/UJL/Fire.unity
+    path: Assets/Scenes/UJL/FireFire.unity
     guid: fb4b49517b0ed314a8168419694610cd
   m_configObjects: {}
