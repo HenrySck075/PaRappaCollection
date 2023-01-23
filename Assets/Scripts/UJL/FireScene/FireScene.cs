@@ -10,10 +10,12 @@ public class FireScene : MonoBehaviour
     [SerializeField] private AudioSource LammyFireVoices;
     [SerializeField] private GameObject DebugInstructions;
     public bool isSongPlaying;
+    public bool isMetronome;
 
     private void Awake()
     {
         isSongPlaying = false;
+        isMetronome = false;
     }
 
     public void BeginFireSong()
@@ -45,6 +47,17 @@ public class FireScene : MonoBehaviour
         {
             EndFireSong();
             isSongPlaying = false;
+        }
+
+        if (isMetronome == false && Input.GetKeyDown(KeyCode.X))
+        {
+            GetComponent<FireBeats>().BeginMetronome();
+            isMetronome = true;
+        }
+        else if (isMetronome == true && Input.GetKeyDown(KeyCode.X))
+        {
+            GetComponent<FireBeats>().EndMetronome();
+            isMetronome = false;
         }
     }
 

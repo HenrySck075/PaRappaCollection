@@ -6,6 +6,15 @@ public class FireBeats : MonoBehaviour
 {
     [SerializeField] private AudioSource MetronomeTick;
     [SerializeField] private float BPM;
+    [SerializeField] double metronomeTime = 0d;
+    [SerializeField] int curBeat;
+    
+
+    private void Start()
+    {
+        curBeat = 0;
+        MetronomeTick.mute = true;
+    }
     
     private void Update()
     {
@@ -13,6 +22,17 @@ public class FireBeats : MonoBehaviour
         {
             QueueNextClip();
             PlayLammyClip();
+        }
+
+        if (metronomeTime < (60d/BPM))
+        {
+            metronomeTime += Time.deltaTime;
+        }
+        else if (metronomeTime >= (60d/BPM))
+        {
+            metronomeTime = metronomeTime-(60d/BPM);
+            curBeat++;
+            MetronomeTick.Play();
         }
     }
     
@@ -51,5 +71,17 @@ public class FireBeats : MonoBehaviour
             lammyclip.SetScheduledEndTime(AudioSettings.dspTime + clipLength);
         }
         else { return; }
+    }
+
+    public void BeginMetronome()
+    {
+        MetronomeTick.mute = false;
+        curBeat = 0;
+        metronomeTime = 0f;
+        MetronomeTick.Play();
+    }
+    public void EndMetronome()
+    {
+        MetronomeTick.mute = true;
     }
 }
