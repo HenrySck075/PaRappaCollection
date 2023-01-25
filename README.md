@@ -13,14 +13,14 @@ If you'd like to help, please friend and DM me on Discord ( Junimeek#5738 ), bec
 - pahaze: Programming
 
 ## The to-do list
-- [x] Make the GitHub page
+- [x] Make the GitHub repository
 - [ ] Learn C#
 - [ ] modding support!!!!!!!!!
 - [ ] Line engine
 - [ ] 3d modeling
 
 ## Current Progress
-progress? what progress?
+i mean, we made the git repo. thats gotta count for something, right?
 
 | Anyway, happy rapping!
 |-
