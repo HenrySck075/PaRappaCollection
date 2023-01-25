@@ -2,43 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBeats : MonoBehaviour
-{
-    [SerializeField] private AudioSource MetronomeTick;
-    [SerializeField] private float BPM;
-    [SerializeField] double metronomeTime = 0d;
-    [SerializeField] int curBeat;
-    
+/*
+metronome script used: https://gist.github.com/bzgeb/c298c6189c73b2cf777c
+*/
 
-    private void Start()
-    {
-        curBeat = 0;
-        MetronomeTick.mute = true;
-    }
-    
+public class FireBeats : MonoBehaviour
+{    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
             QueueNextClip();
-            PlayLammyClip();
-        }
-
-        if (metronomeTime < (60d/BPM))
-        {
-            metronomeTime += Time.deltaTime;
-        }
-        else if (metronomeTime >= (60d/BPM))
-        {
-            metronomeTime = metronomeTime-(60d/BPM);
-            curBeat++;
-            MetronomeTick.Play();
+            PlayLammyClip(CurrentLammyClipQueue);
         }
     }
     
     public void QueueNextClip()
     {
-        if (CurrentLammyClipQueue == 2)
+        if (CurrentLammyClipQueue == 4)
         {
             CurrentLammyClipQueue = 1;
         }
@@ -52,36 +33,96 @@ public class FireBeats : MonoBehaviour
     [SerializeField] private int CurrentLammyClipQueue;
     [SerializeField] float startTime;
     [SerializeField] float clipLength;
-    public void PlayLammyClip()
+    public int[] LammyClipID;
+    public float[] LammyClipStartPos;
+    public float[] LammyClipLength;
+
+    private void InitializeLammyClip()
     {
-        if (CurrentLammyClipQueue == 1)
-        {
-            startTime = 0.102f;
-            clipLength = 0.477f;
-            lammyclip.time = startTime;
-            lammyclip.PlayScheduled(AudioSettings.dspTime);
-            lammyclip.SetScheduledEndTime(AudioSettings.dspTime + clipLength);
-        }
-        else if (CurrentLammyClipQueue == 2)
-        {
-            startTime = 0.657f;
-            clipLength = 0.561f;
-            lammyclip.time = startTime;
-            lammyclip.PlayScheduled(AudioSettings.dspTime);
-            lammyclip.SetScheduledEndTime(AudioSettings.dspTime + clipLength);
-        }
-        else { return; }
+        LammyClipID = new int[5] {
+            0, 1, 2, 3, 4
+        };
+        LammyClipStartPos = new float[5] {
+            0.009f, 0.102f, 0.657f, 1.283f, 1.976f
+        };
+        LammyClipLength = new float[5] {
+            0.080f, 0.477f, 0.561f, 0.635f, 0.758f
+        };
+
+        Debug.Log(LammyClipID[3]);
+        Debug.Log(LammyClipStartPos[3]);
+        Debug.Log(LammyClipLength[3]);
     }
 
-    public void BeginMetronome()
+    public void PlayLammyClip(int LammyClipID)
     {
-        MetronomeTick.mute = false;
-        curBeat = 0;
-        metronomeTime = 0f;
-        MetronomeTick.Play();
+        if (CurrentLammyClipQueue == LammyClipID)
+        {
+            startTime = LammyClipStartPos[LammyClipID];
+            clipLength = LammyClipLength[LammyClipID];
+        }
+        else { return; }
+
+        lammyclip.time = startTime;
+        lammyclip.PlayScheduled(AudioSettings.dspTime);
+        lammyclip.SetScheduledEndTime(AudioSettings.dspTime + clipLength);
     }
-    public void EndMetronome()
+    
+
+    [SerializeField] private AudioSource bpmtick;
+    public double bpm = 140.0F;
+    [SerializeField] double nextTick = 0.0F; // The next tick in dspTime
+    [SerializeField] double sampleRate = 0.0F; 
+    [SerializeField] bool ticked = false;
+    [SerializeField] int curBeat;
+    [SerializeField] int curStep;
+
+    void Start() {
+        double startTick = AudioSettings.dspTime;
+        sampleRate = AudioSettings.outputSampleRate;
+
+        nextTick = startTick + (15.0 / bpm);
+
+        InitializeLammyClip();
+    }
+
+    void LateUpdate() {
+        if ( !ticked && nextTick >= AudioSettings.dspTime) {
+            ticked = true;
+            BroadcastMessage( "OnTick" );
+        }
+    }
+
+    void OnTick() {
+        if (FindObjectOfType<FireScene>().isMetronome) {
+            curStep++;
+            if (curStep % 4 == 0)
+            {
+                curBeat++;
+                bpmtick.Play();
+            }
+        }
+    }
+
+    public void InitializeMetronome()
     {
-        MetronomeTick.mute = true;
+        double startTick = AudioSettings.dspTime;
+        nextTick = startTick + (15.0 / bpm);
+        curStep = 0;
+        curBeat = 0;
+        ticked = false;
+        FindObjectOfType<FireScene>().isMetronome = true;
+        bpmtick.Play();
+    }
+
+    void FixedUpdate() {
+        double timePerTick = 15.0f / bpm;
+        double dspTime = AudioSettings.dspTime;
+
+        while ( dspTime >= nextTick ) {
+            ticked = false;
+            nextTick += timePerTick;
+        }
+
     }
 }

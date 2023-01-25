@@ -51,27 +51,23 @@ public class FireScene : MonoBehaviour
 
         if (isMetronome == false && Input.GetKeyDown(KeyCode.X))
         {
-            GetComponent<FireBeats>().BeginMetronome();
-            isMetronome = true;
+            GetComponent<FireBeats>().InitializeMetronome();
         }
         else if (isMetronome == true && Input.GetKeyDown(KeyCode.X))
         {
-            GetComponent<FireBeats>().EndMetronome();
             isMetronome = false;
         }
     }
 
+    
     /*
     [SerializeField] TextAsset lammyfile;
     Dictionary<string, string> lammyclip;
-
-
     void Start()
     {
         lammyclip = new Dictionary<string, string>();
         ReadFile();
     }
-
     void ReadFile()
     {
         var splitFile = new string[] { "\r\n", "\r", "\n"};
@@ -88,6 +84,7 @@ public class FireScene : MonoBehaviour
         }
     }
     */
+    
 
 
     /*

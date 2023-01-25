@@ -3198,7 +3198,7 @@ GameObject:
   - component: {fileID: 1134918816}
   - component: {fileID: 1134918818}
   m_Layer: 0
-  m_Name: FireScript
+  m_Name: FireSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3221,6 +3221,7 @@ MonoBehaviour:
   DebugInstructions: {fileID: 806914355}
   isSongPlaying: 0
   isMetronome: 0
+  lammyfile: {fileID: 4900000, guid: 38fb688e8b8274543874532ecf8f76ee, type: 3}
 --- !u!4 &1134918817
 Transform:
   m_ObjectHideFlags: 0
@@ -3248,14 +3249,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d5504d4ac4aaa4791754cd8dd6171e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MetronomeTick: {fileID: 1318308840}
-  BPM: 100
-  metronomeTime: 0
-  curBeat: 0
   lammyclip: {fileID: 2065695786}
   CurrentLammyClipQueue: 0
   startTime: 0
   clipLength: 0
+  LammyClipID: 
+  LammyClipStartPos: []
+  LammyClipLength: []
+  bpmtick: {fileID: 1318308840}
+  bpm: 100
+  nextTick: 0
+  sampleRate: 0
+  ticked: 0
+  curBeat: 0
+  curStep: 0
 --- !u!1 &1160612765
 GameObject:
   m_ObjectHideFlags: 0
