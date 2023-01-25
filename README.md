@@ -12,9 +12,15 @@ If you'd like to help, please friend and DM me on Discord ( Junimeek#5738 ), bec
 - Junimeek: Sprites and audio, programming
 - pahaze: Programming
 
-## Plans
-- Recreating all three PaRappa games (currently a focus on UJL, becuase why not)
-- Decent modding support
+## The to-do list
+- [x] Make the GitHub page
+- [ ] Learn C#
+- [ ] modding support!!!!!!!!!
+- [ ] Line engine
+- [ ] 3d modeling
 
 ## Current Progress
 progress? what progress?
+
+| Anyway, happy rapping!
+|-
