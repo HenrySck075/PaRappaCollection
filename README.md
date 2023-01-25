@@ -1,4 +1,6 @@
 # The PaRappa the Rapper Collection
+[![CodeFactor](https://www.codefactor.io/repository/github/junimeek/parappacollection/badge)](https://www.codefactor.io/repository/github/junimeek/parappacollection)
+
 It's PaRappa. But in Unity!
 
 There's not much else to it honestly
