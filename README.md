@@ -1,4 +1,6 @@
 # The PaRappa the Rapper Collection
+[![CodeFactor](https://www.codefactor.io/repository/github/junimeek/parappacollection/badge)](https://www.codefactor.io/repository/github/junimeek/parappacollection)
+
 It's PaRappa. But in Unity!
 
 There's not much else to it honestly
@@ -10,9 +12,15 @@ If you'd like to help, please friend and DM me on Discord ( Junimeek#5738 ), bec
 - Junimeek: Sprites and audio, programming
 - pahaze: Programming
 
-## Plans
-- Recreating all three PaRappa games (currently a focus on UJL, becuase why not)
-- Decent modding support
+## The to-do list
+- [x] Make the GitHub repository
+- [ ] Learn C#
+- [ ] modding support!!!!!!!!!
+- [ ] Line engine
+- [ ] 3d modeling
 
 ## Current Progress
-progress? what progress?
+i mean, we made the git repo. thats gotta count for something, right?
+
+| Anyway, happy rapping!
+|-

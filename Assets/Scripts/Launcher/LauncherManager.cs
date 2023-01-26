@@ -48,23 +48,44 @@ public class LauncherManager : MonoBehaviour
     public AudioSource RemasteredLoop;
     public AudioSource LammyLoop;
     public AudioSource SequelLoop;
+    public AudioSource MenuLoop;
+
+    public void Start()
+    {
+        MenuLoop.Play();
+    }
 
     public void PlayRL()
     {
         RemasteredLoop.Play();
         LammyLoop.Stop();
         SequelLoop.Stop();
+        MenuLoop.Stop();
     }
     public void PlayLL()
     {
         RemasteredLoop.Stop();
         LammyLoop.Play();
         SequelLoop.Stop();
+        MenuLoop.Stop();
     }
     public void PlaySL()
     {
         RemasteredLoop.Stop();
         LammyLoop.Stop();
         SequelLoop.Play();
+        MenuLoop.Stop();
+    }
+
+    public void PlayMM()
+    {
+        if (MenuLoop.isPlaying == false)
+        {
+            RemasteredLoop.Stop();
+            LammyLoop.Stop();
+            SequelLoop.Stop();
+            MenuLoop.Play(); 
+        }
+        else { return; }
     }
 }
